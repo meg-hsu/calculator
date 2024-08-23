@@ -20,7 +20,7 @@ body{
     height: 70vh; 
     width: auto;
 
-    aspect-ratio: 3/5;
+    aspect-ratio: 3/4;
     background-color: rgb(55, 46, 125);
     border-radius: 24px;
     border: 30px;
@@ -42,10 +42,33 @@ body{
 
 .display{
     /* width: auto; */
-    height: 125px;
+    height: 75px;
 
-    background-color: rgb(98, 128, 110);
+    background-color: rgb(59, 88, 71);
     border-radius: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.display.container{
+    flex: 1;
+    justify-content: end;
+    margin-right: 5%;
+    height: fit-content;
+}
+
+.numbers{
+    color: rgb(223, 222, 222);
+    letter-spacing: 3px;
+    font-size: xx-large;
+}
+
+#negative{
+    display: block;
+    color: rgb(223, 222, 222);
+    letter-spacing: 3px;
+    font-size: xx-large;
+    margin-right: 1%;
 }
 
 .button-container{

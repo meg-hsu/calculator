@@ -1,9 +1,27 @@
+function toggleNegative(currentStatus){
+    let negativeDisplay = document.getElementById("negative");
+    currentStatus = !currentStatus; // changes from false to true and vice versa
+
+    if (currentStatus == true){
+        negativeDisplay.textContent = "-"
+    } else {
+        negativeDisplay.textContent = "";
+    }
+
+    return currentStatus;
+}
+
 function detectButtonPress(){
     let currentnum = "0";
     let status = "firstnum"
     let firstnum = "";
     let secondnum = "";
     let operator = "";
+    let isNegative = false;
+
+    // event listener - toggle negative sign
+    let negButton = document.querySelector(".func.neg");
+    let toggledNeg = negButton.addEventListener("click", (event) => isNegative = toggleNegative(isNegative));
 
     // event listeners - number buttons
     let numberButtons = document.querySelectorAll(".number");
@@ -11,13 +29,18 @@ function detectButtonPress(){
         let numPressed = button.addEventListener(("click"), (event) => {
             let number = button.textContent;
             if (status == "firstnum") {             // status = firstnum
+                if (isNegative) number = +number * -1;
                 firstnum = firstnum + number;
+
             } else if (status == "secondnum"){      // status = secondnum
+                if (isNegative) number = +number * -1;
                 secondnum = secondnum + number;
             } else {                                // status = operator
+                if (isNegative) number = +number * -1;
                 secondnum = secondnum + number;
                 status = "secondnum";
             }
+            isNegative = false;
             console.log("------------------");
             console.log("firstnum:", firstnum);
             console.log("secondnum:", secondnum);
@@ -82,11 +105,15 @@ function detectButtonPress(){
 
 }
 
-
-
-
-detectButtonPress();
-
+/*TODO:
+- implement +/- button
+    - display: when pressed, toggle "-" button
+    - if it is active when another operator is pressed, multiple said number by -1 BEFORE continuing/calculation
+- fix operators bug
+    - when two operators are pressed back to back, sets current number to like, infinity or something.
+- display!!! 
+- decimals...
+*/
 
 function operate(num1, num2, operator){
     if (operator == "+"){
@@ -99,3 +126,7 @@ function operate(num1, num2, operator){
         return +num1 / +num2;
     }
 }
+
+detectButtonPress();
+
+
