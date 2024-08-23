@@ -6,6 +6,54 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
+        <div class="calculator-container">
+            <div class="calculator">
+                <div class="display"></div>
+                <div class="button-container">
+                    <div class="power-and-clear">
+                        <div class="emptyspace"></div>
+                        <button class="func">clear</button>
+                        <button class="func">on/off</button> <!-- look up toggle switches that change colors?-->
+                    </div>
+                    <div class="nums-and-operations"> 
+                        <div class="nums" id="numbers-container">
+                            <div class="nums container">
+                                <div class="nums row">
+                                    <button class="body">7</button>
+                                    <button class="body">8</button>
+                                    <button class="body">9</button>
+                                    <button class="body op">/</button>
+                                </div>
+                            </div> 
+                            <div class="nums container">
+                                <div class="nums row">
+                                    <button class="body">4</button>
+                                    <button class="body">5</button>
+                                    <button class="body">6</button>
+                                    <button class="body op">x</button>
+                                </div> 
+                            </div>
+                            <div class="nums container">
+                                <div class="nums row">
+                                    <button class="body">1</button>
+                                    <button class="body">2</button>
+                                    <button class="body">3</button>
+                                    <button class="body op">-</button>
+                                </div> 
+                            </div>
+                            <div class="nums container">
+                                <div class="nums row" id="bottom-row">
+                                    <button class="body">0</button>
+                                    <button class="body">.</button>
+                                    <button class="body">=</button>
+                                    <button class="body op">+</button>
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <script src="javascript.js"></script>
     </body>
 </html>
